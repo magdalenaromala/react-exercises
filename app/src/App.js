@@ -2,7 +2,7 @@ import React, {Component} from "react"
 import "./App.css";
 
 class App extends Component{
-  state={people:[
+  state={contacts:[
     { 
       id: 1, 
       name: 'John',
@@ -22,7 +22,30 @@ class App extends Component{
   };
   render(){
     return(
+      <div>
       <div>Książka kontaktów</div>
+     <table>
+       <thead>
+         <tr>
+           <th>Name</th>
+           <th>Surname</th>
+           <th>Phone</th>
+         </tr>
+       </thead>
+       <tbody>{this.state.contacts.map(contact => (
+           
+          <tr key={contact.id}>
+         
+           <td>{contact.name}</td>
+           <td>{contact.surname}</td>
+           <td>{contact.phone}</td>
+         </tr>
+        ))}
+
+
+       </tbody>
+     </table>
+      </div>
     )
   }
 }
