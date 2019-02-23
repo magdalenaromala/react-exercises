@@ -21,9 +21,13 @@ class App extends Component{
 
   };
   render(){
+   
+    
+
+    
     return(
       <div>
-      <div>Książka kontaktów</div>
+      <h3>Książka kontaktów</h3>
      <table>
        <thead>
          <tr>
@@ -37,7 +41,9 @@ class App extends Component{
            <td>{contact.name}</td>
            <td>{contact.surname}</td>
            <td>{contact.phone}</td>
-           <td><button>Toggle favorite</button></td>
+           <td><button>Toggle favorite</button>
+               <button>Remove contact</button>
+           </td>
          </tr>
         ))}
        </tbody>
