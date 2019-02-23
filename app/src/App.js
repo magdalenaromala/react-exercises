@@ -20,9 +20,17 @@ class App extends Component{
   ]
 
   };
+
+
+  removeContact= contactId => {
+    this.setState({
+     contacts: this.state.contacts.filter(contact => contact.id !== contactId),
+    });
+  };
+  
   render(){
+
    
-    
 
     
     return(
@@ -42,7 +50,7 @@ class App extends Component{
            <td>{contact.surname}</td>
            <td>{contact.phone}</td>
            <td><button>Toggle favorite</button>
-               <button>Remove contact</button>
+               <button onClick={()=> this.removeContact(contact.id)}>Remove contact</button>
            </td>
          </tr>
         ))}
