@@ -37,7 +37,7 @@ class App extends Component{
          </tr>
        </thead>
        <tbody>{this.state.contacts.map(contact => (
-          <tr key={contact.id}>
+          <tr key={contact.id} className={contact.isFavorite ? "favorite" : "" }>
            <td>{contact.name}</td>
            <td>{contact.surname}</td>
            <td>{contact.phone}</td>
