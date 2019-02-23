@@ -39,6 +39,7 @@ class App extends Component{
            <td>{contact.name}</td>
            <td>{contact.surname}</td>
            <td>{contact.phone}</td>
+           <td><button>Favorite</button></td>
          </tr>
         ))}
 
