@@ -33,17 +33,13 @@ class App extends Component{
          </tr>
        </thead>
        <tbody>{this.state.contacts.map(contact => (
-           
           <tr key={contact.id}>
-         
            <td>{contact.name}</td>
            <td>{contact.surname}</td>
            <td>{contact.phone}</td>
-           <td><button>Favorite</button></td>
+           <td><button>Toggle favorite</button></td>
          </tr>
         ))}
-
-
        </tbody>
      </table>
       </div>
