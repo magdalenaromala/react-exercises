@@ -21,7 +21,22 @@ class App extends Component{
 
   };
 
+  toggleFavorite = contactId => {
+    this.setState({
+      contacts: this.state.contacts.map(contact => {
+        return contact.id === contactId
+          
+         ? {
+              ...contact,
+              isFavorite: !contact.isFavorite
+            }
+            : contact
+      })
+    });
+  };
 
+
+ 
   removeContact= contactId => {
     this.setState({
      contacts: this.state.contacts.filter(contact => contact.id !== contactId),
@@ -49,7 +64,7 @@ class App extends Component{
            <td>{contact.name}</td>
            <td>{contact.surname}</td>
            <td>{contact.phone}</td>
-           <td><button>Toggle favorite</button>
+           <td><button onClick={() => this.toggleFavorite(contact.id)}>Toggle favorite</button>
                <button onClick={()=> this.removeContact(contact.id)}>Remove contact</button>
            </td>
          </tr>
