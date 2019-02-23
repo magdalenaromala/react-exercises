@@ -17,9 +17,16 @@ class App extends Component{
       phone: '987-654-321',
       isFavorite: true
     }
-  ]
+  ],
+  addId:'',
+  addName: '',
+  addSurname: '',
+  addPhone: '',
+  addIsFavorite: false,
 
+  
   };
+
 
   toggleFavorite = contactId => {
     this.setState({
@@ -42,6 +49,41 @@ class App extends Component{
      contacts: this.state.contacts.filter(contact => contact.id !== contactId),
     });
   };
+
+  inputAddName = event => {
+    this.setState({
+      addName: event.target.value
+    })
+  }
+  inputAddSurname = event => {
+    this.setState({
+      addSurname: event.target.value
+    })
+  }
+
+  inputAddPhone = event => {
+    this.setState({
+      addPhone: event.target.value
+    })
+  }
+
+  inputAddContact= () => {
+    if (this.state.addName && this.state.addSurname && this.state.addPhone) {
+      const contact = [{
+        id: this.state.addId,
+        name: this.state.addName,
+        surname: this.state.addSurname,
+        phone: this.state.addPhone,
+        isFavorite: this.state.addIsFavorite
+      }]
+      this.setState({
+        contacts: this.state.contacts.concat(contact),
+      })
+    }
+   
+  }
+
+
   
   render(){
 
@@ -51,6 +93,10 @@ class App extends Component{
     return(
       <div>
       <h3>Książka kontaktów</h3>
+        <input type="text"onChange={ this.inputAddName} placeholder="Name" value={this.state.addName} />
+        <input type="text" onChange={this.inputAddSurname} placeholder="Surname" value={this.state.addSurname} />
+        <input type="text" onChange={this.inputAddPhone} placeholder="Phone" value={this.state.addPhone} />
+        <button onClick={this.inputAddContact}>Add new contact</button>
      <table>
        <thead>
          <tr>
